@@ -17,6 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include, re_path
+from dashboard import views
 from login.views import login, register, handler404, handler500
 from dashboard.views import dashboard
 
@@ -25,7 +26,9 @@ urlpatterns = [
     path("", dashboard, name="dashboard"),
     re_path(r"login$", login, name="login"),
     path("register", register, name="register"),
+    path('tasks/',views.taskList, name='task-list'),
 ]
 
 handler404 = handler404
 handler500 = handler500
+
